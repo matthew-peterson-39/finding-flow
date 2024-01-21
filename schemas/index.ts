@@ -1,6 +1,21 @@
 import { UserRole } from "@prisma/client";
 import * as z from "zod";
 
+export const TaskSchema = z.object({
+    title: z.string({
+      required_error: "Title is required",
+      invalid_type_error: "Title must be a string",
+    }).min(1, "Title cannot be empty"),
+    description: z.string().optional(),
+    total_time: z.number().int().nonnegative().optional().default(0),
+    userId: z.string({
+      required_error: "User ID is required",
+      invalid_type_error: "User ID must be a string",
+    }),
+    // createdAt: z.date(),
+    // updatedAt: z.date(),
+  });
+  
 export const SettingsSchema = z.object({
     name: z.optional(z.string()),
     isTwoFactorEnabled: z.optional(z.boolean()),

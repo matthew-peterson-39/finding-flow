@@ -31,7 +31,6 @@ export const getTaskByTitle = async (id: string, taskTitle: string) => {
 }
 
 export const createNewTask = async (taskData: TaskData): Promise<Task> => {
-
     return db.task.create({
         data: {...taskData},
     });

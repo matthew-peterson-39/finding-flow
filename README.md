@@ -8,6 +8,7 @@
 - Vercel
 - Tailwind
 - Resend
+- Neon
 - Prisma DB
 
 ## About

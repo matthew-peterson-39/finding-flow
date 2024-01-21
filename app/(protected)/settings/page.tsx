@@ -28,7 +28,6 @@ import { FormError } from "@/components/form-error";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { UserRole } from "@prisma/client";
-import { FaShieldVirus } from "react-icons/fa";
 
 const SettingsPage = () => {
     const user = useCurrentUser();

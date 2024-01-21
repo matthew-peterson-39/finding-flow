@@ -11,10 +11,10 @@ export default function Home() {
     <main className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-zinc-700 to-slate-800">
       <div className="flex flex-col items-center justify-center space-y-6 text-center">
         <h1 className={cn("text-6xl text-center font-semibold text-white drop-shadow-md", FONT.className)}>
-          Auth
+          Finding Flow
         </h1>
         <p className="text-white text-lg">
-          A simple authentication service
+          Find your flow, own your life.
         </p>
         <div className="flex">       
           <LoginButton mode="modal" asChild>

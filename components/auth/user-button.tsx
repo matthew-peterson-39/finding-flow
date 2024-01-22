@@ -1,6 +1,6 @@
 "use client";
 import { FaUser } from "react-icons/fa";
-import { ExitIcon } from "@radix-ui/react-icons"
+import { ExitIcon, GearIcon } from "@radix-ui/react-icons"
 import { 
     DropdownMenu,
     DropdownMenuContent,
@@ -14,6 +14,7 @@ import {
 } from "../ui/avatar";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { LogoutButton } from "@/components/auth/logout-button";
+import { SettingsButton } from "@/app/auth/settings/settings-button";
 
 export const UserButton = () => {
     const user = useCurrentUser();
@@ -29,6 +30,12 @@ export const UserButton = () => {
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-40" align="end">
+                <SettingsButton>
+                    <DropdownMenuItem>  
+                        <GearIcon className="h-4 w-4 mr-2"/>
+                            Settings
+                    </DropdownMenuItem>
+                </SettingsButton>
                 <LogoutButton>
                     <DropdownMenuItem>
                         <ExitIcon className="h-4 w-4 mr-2"/>

@@ -20,7 +20,7 @@ export const UserTasks = ({
 }: UserTasksProps) => {
     return (
         <Card className="max-w-full md:w-[600px] mx-4 md:mx-auto">
-            <CardHeader>
+            <CadHeader>
                 <p className="text-2xl font-semibold text-center">
                     {label}
                 </p>

@@ -14,7 +14,7 @@ export const Header = ({
         <>
         <div className="w-full flex flex-col gap-y-4 items-center">
             <h1 className={cn("text-3xl font-semibold", FONT.className)}>
-                Auth
+                Find Flow
             </h1>
             <p className="text-muted-foreground text-sm">
                 {label}

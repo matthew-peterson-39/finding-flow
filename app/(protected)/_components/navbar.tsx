@@ -1,9 +1,9 @@
 "use client";
+
 import { UserButton } from "@/components/auth/user-button";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -35,6 +35,14 @@ const Navbar = () => {
             Admin
           </Link>
         </Button> */}
+        <Button 
+          asChild
+          variant={pathname === "/flow" ? "default" : "outline"}
+          >
+          <Link href={"/flow"}>
+            Flow
+          </Link>
+        </Button>
         <Button 
           asChild
           variant={pathname === "/tasks" ? "default" : "outline"}

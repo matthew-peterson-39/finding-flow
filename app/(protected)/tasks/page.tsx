@@ -32,8 +32,8 @@ const TaskPage = () => {
     const [tasks, setTasks] = useState<Task[]>(user?.tasks || []);
     const [error, setError] = useState<string | undefined>();
     const [success, setSuccess] = useState<string | undefined>();
-    const { update } = useSession();
     const [isPending, startTransition] = useTransition();
+    const { update } = useSession();
     
     const onSubmit = (values: z.infer<typeof TaskSchema>) => {
         startTransition(() => {

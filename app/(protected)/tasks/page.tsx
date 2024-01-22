@@ -25,7 +25,6 @@ import { Button } from "@/components/ui/button";
 import { Task } from "@prisma/client";
 import { toast } from "sonner";
 import { getUserTasks } from "@/actions/get-user-tasks";
-import { Value } from "@radix-ui/react-select";
 
 
 const TaskPage = () => {
@@ -67,16 +66,18 @@ const TaskPage = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             if (user && user.id) {
-                getUserTasks()
-                .then(async (response) => {
-                    if (response.ok) {
-                        const tasksData = await response.json();
+                try {
+                    const tasksData = await getUserTasks();
+                    if (tasksData) {
                         setTasks(tasksData);
-                        // toast.success("Tasks retrieved")
+                        // toast.success("Tasks retrieved") // Uncomment this if you want the success toast
                     } else {
                         toast.error("Failed to retrieve tasks.")
                     }
-                })
+                } catch (error) {
+                    console.error("Error fetching tasks:", error);
+                    toast.error("An error occurred while fetching tasks.");
+                }
             }
         };
         fetchTasks();

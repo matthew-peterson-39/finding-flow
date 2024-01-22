@@ -92,45 +92,47 @@ const TaskPage = () => {
                 </p>
             </CardHeader>
             <CardContent>
-            <Form {...form}>
-                {/* <form 
-                    className="space-y-6"
-                    onSubmit={form.handleSubmit(onSubmit)}
-                > */}
-                <form onSubmit={(e) => {
-                    e.preventDefault();
-                    console.log("Form submitted manually");
-                    onSubmit(form.getValues());
-                }}>
-                    <div className="space-y-4">
-                        <FormField control={form.control}
-                            name="title"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>
-                                        Task title
-                                    </FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            {...field}
-                                            placeholder="Task name"
-                                            disabled={isPending}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                        )}/>
-                    
-                    <FormError message={error}/>
-                    <FormSuccess message={success}/>
-                    <Button
-                        disabled={isPending} 
-                        type="submit">
-                        Add
-                    </Button>
-                </div>
-            </form>
-            </Form>
+            <div className="flex flex-row">
+                <Form {...form}>
+                    {/* <form 
+                        className="space-y-6"
+                        onSubmit={form.handleSubmit(onSubmit)}
+                    > */}
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+                        console.log("Form submitted manually");
+                        onSubmit(form.getValues());
+                    }}>
+                        <div className="space-y-4">
+                            <FormField control={form.control}
+                                name="title"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>
+                                            Task title
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                placeholder="Task name"
+                                                disabled={isPending}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                            )}/>
+                        
+                        <FormError message={error}/>
+                        <FormSuccess message={success}/>
+                        <Button
+                            disabled={isPending} 
+                            type="submit">
+                            Add
+                        </Button>
+                    </div>
+                </form>
+                </Form>
+            </div>
             <div>
                 {tasks.map(task => (
                     <div key={task.id}>

@@ -86,7 +86,7 @@ const TaskPage = () => {
     return (
         <>
         <div className="max-w-full md:w-[600px] mx-4 md:mx-auto space-y-8 mt-20">
-        <Card className="max-w-full md:w-[600px] mx-4 md:mx-auto">
+        <Card className="max-w-full rounded-xl md:w-[600px] mx-4 md:mx-auto">
             <CardHeader>
                 <p className="text-2xl font-semibold text-center">
                     Add Tasks

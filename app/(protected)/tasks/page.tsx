@@ -24,6 +24,8 @@ import { FormSuccess } from "@/components/form-success";
 import { Button } from "@/components/ui/button";
 import { Task } from "@prisma/client";
 import { toast } from "sonner";
+import { getUserTasks } from "@/actions/get-user-tasks";
+import { Value } from "@radix-ui/react-select";
 
 
 const TaskPage = () => {
@@ -65,7 +67,7 @@ const TaskPage = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             if (user && user.id) {
-                fetch("/api/tasks")
+                getUserTasks()
                 .then(async (response) => {
                     if (response.ok) {
                         const tasksData = await response.json();

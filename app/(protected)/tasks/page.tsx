@@ -85,7 +85,7 @@ const TaskPage = () => {
 
     return (
         <>
-        <div className="max-w-full md:w-[600px] mx-4 md:mx-auto space-y-8 py-24">
+        <div className="max-w-full md:w-[600px] mx-4 md:mx-auto space-y-8 mt-20">
         <Card className="max-w-full md:w-[600px] mx-4 md:mx-auto">
             <CardHeader>
                 <p className="text-2xl font-semibold text-center">
@@ -136,7 +136,7 @@ const TaskPage = () => {
             </div>
             </CardContent>
         </Card>
-        <Card className="overflow-y-scroll p-4" style={{ height: '400px' }}>
+        <Card className="overflow-y-auto p-4" style={{ height: '400px' }}>
                 <CardHeader>    
                     <p className="text-2xl font-semibold text-center">
                         Your Tasks

@@ -18,6 +18,7 @@ export default function Home() {
         </p>
         <div className="flex">       
           <LoginButton mode="modal" asChild>
+          {/* <LoginButton asChild> */}
             <Button variant={"secondary"} size={"default"}>
               Sign in
             </Button>

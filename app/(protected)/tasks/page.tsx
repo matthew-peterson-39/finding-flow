@@ -85,10 +85,11 @@ const TaskPage = () => {
 
     return (
         <>
+        <div className="max-w-full md:w-[600px] mx-4 md:mx-auto space-y-8 py-24">
         <Card className="max-w-full md:w-[600px] mx-4 md:mx-auto">
             <CardHeader>
                 <p className="text-2xl font-semibold text-center">
-                    Tasks
+                    Add Tasks
                 </p>
             </CardHeader>
             <CardContent>
@@ -135,21 +136,28 @@ const TaskPage = () => {
             </div>
             </CardContent>
         </Card>
-        <Card className="max-w-full md:w-[600px] mx-4 md:mx-auto overflow-y-scroll p-4">
-            <CardContent>
-                <div className="space-y-4">
-                    {tasks.map(task => (
-                        <div 
-                            key={task.id}
-                            className="p-4 border rounded shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                            // onClick={() => handleTaskClick(task)}
-                        >
-                            <p className="text-lg">{task.title}</p>
-                        </div>
-                    ))}
-                </div>
-            </CardContent>
-        </Card>
+        <Card className="overflow-y-scroll p-4" style={{ height: '400px' }}>
+                <CardHeader>    
+                    <p className="text-2xl font-semibold text-center">
+                        Your Tasks
+                    </p>
+                </CardHeader>
+                <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto" style={{ maxHeight: '500px' }}>
+                        {tasks.map(task => (
+                            <div 
+                                key={task.id}
+                                className="p-4 border rounded shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                                // onClick={() => handleTaskClick(task)}
+                            >
+                                <p className="text-lg">{task.title}</p>
+                                {/* Additional task details */}
+                            </div>
+                        ))}
+                    </div>
+                </CardContent>
+            </Card>
+    </div>
     </>
     )  
 }

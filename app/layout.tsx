@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Find your Flow",
-  description: "Enhance life by taking control of your time.",
+  description: "Find your flow, own your life.",
 };
 
 export default async function RootLayout( {children}: Readonly<{children: React.ReactNode;}>) {

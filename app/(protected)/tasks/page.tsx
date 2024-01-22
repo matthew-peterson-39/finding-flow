@@ -136,27 +136,27 @@ const TaskPage = () => {
             </div>
             </CardContent>
         </Card>
-        <Card className="overflow-y-auto p-4" style={{ height: '400px' }}>
-                <CardHeader>    
-                    <p className="text-2xl font-semibold text-center">
-                        Your Tasks
-                    </p>
-                </CardHeader>
-                <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto" style={{ maxHeight: '500px' }}>
-                        {tasks.map(task => (
-                            <div 
-                                key={task.id}
-                                className="p-4 border rounded shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                                // onClick={() => handleTaskClick(task)}
-                            >
-                                <p className="text-lg">{task.title}</p>
-                                {/* Additional task details */}
-                            </div>
-                        ))}
-                    </div>
-                </CardContent>
-            </Card>
+        <Card className="overflow-y-auto p-4 rounded-xl" style={{ height: '400px' }}>
+            <CardHeader>    
+                <p className="text-2xl font-semibold text-center">
+                    Your Tasks
+                </p>
+            </CardHeader>
+            <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto" style={{ maxHeight: '500px' }}>
+                    {tasks.map(task => (
+                        <div 
+                            key={task.id}
+                            className="p-4 border rounded shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                            // onClick={() => handleTaskClick(task)}
+                        >
+                            <p className="text-lg">{task.title}</p>
+                            {/* Additional task details */}
+                        </div>
+                    ))}
+                </div>
+            </CardContent>
+        </Card>
     </div>
     </>
     )  

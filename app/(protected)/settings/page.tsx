@@ -65,7 +65,7 @@ const form = useForm<z.infer<typeof SettingsSchema>>({
     }
 
     return (
-    <Card className="max-w-full md:w-[600px] mx-4 md:mx-auto mt-20">
+    <Card className="max-w-full md:w-[600px] rounded-xl mx-4 md:mx-auto mt-20">
         <CardHeader>
             <p className="text-2xl font-semibold text-center">
                 Settings

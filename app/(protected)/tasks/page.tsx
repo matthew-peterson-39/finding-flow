@@ -120,28 +120,36 @@ const TaskPage = () => {
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
-                            )}/>
-                        
-                        <FormError message={error}/>
-                        <FormSuccess message={success}/>
-                        <Button
-                            disabled={isPending} 
-                            type="submit">
-                            Add
-                        </Button>
-                    </div>
-                </form>
+                                )}
+                            />
+                            <FormError message={error}/>
+                            <FormSuccess message={success}/>
+                            <Button
+                                disabled={isPending} 
+                                type="submit">
+                                Add
+                            </Button>
+                        </div>
+                    </form>
                 </Form>
             </div>
-            <div>
-                {tasks.map(task => (
-                    <div key={task.id}>
-                        {task.title}
-                    </div>
-                ))}
-            </div>
-        </CardContent>
-    </Card>
+            </CardContent>
+        </Card>
+        <Card className="max-w-full md:w-[600px] mx-4 md:mx-auto overflow-y-scroll p-4">
+            <CardContent>
+                <div className="space-y-4">
+                    {tasks.map(task => (
+                        <div 
+                            key={task.id}
+                            className="p-4 border rounded shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                            // onClick={() => handleTaskClick(task)}
+                        >
+                            <p className="text-lg">{task.title}</p>
+                        </div>
+                    ))}
+                </div>
+            </CardContent>
+        </Card>
     </>
     )  
 }

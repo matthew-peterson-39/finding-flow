@@ -26,7 +26,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
     const confirmLink = `${domain}/auth/new-verification?token=${token}`;
 
     await resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: "Flow <find-flow@find-flow.com>",
         to: email,
         subject: "Confirm your email",
         html: `Click the link: \n\n${confirmLink}\n\n to verify email.`

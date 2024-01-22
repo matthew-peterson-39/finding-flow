@@ -17,8 +17,8 @@ export default function Home() {
           Find your flow, own your life.
         </p>
         <div className="flex">       
-          <LoginButton mode="modal" asChild>
-          {/* <LoginButton asChild> */}
+          {/* <LoginButton mode="modal" asChild> */}
+          <LoginButton asChild>
             <Button variant={"secondary"} size={"default"}>
               Sign in
             </Button>

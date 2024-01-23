@@ -1,6 +1,11 @@
 import { UserRole } from "@prisma/client";
 import * as z from "zod";
 
+export const FlowSchema = z.object({
+    name: z.string().min(1),
+    userId: z.string()
+   });
+
 export const TaskSchema = z.object({
     title: z.string({
       required_error: "Title is required",

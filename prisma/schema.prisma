@@ -14,20 +14,6 @@ enum UserRole {
   USER
 }
 
-model User {
-  id                  String    @id @default(cuid())
-  name                String?
-  email               String?   @unique
-  emailVerified       DateTime?
-  image               String?
-  password            String?
-  role                UserRole @default(USER)
-  accounts            Account[]
-  isTwoFactorEnabled  Boolean @default(false)
-  twoFactorConfirmation TwoFactorConfirmation?
-
-  tasks Task[] //one-to-many relationship
-}
 
 model Account {
   id                 String  @id @default(cuid())
@@ -90,19 +76,43 @@ model Task {
   title String
   description String?
   total_time Int @default(0) //Stored in seconds
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  flowTimers FlowTimer[]
+  flowTasks FlowTask[]
 }
 
-model FlowTimer {
-  id String @id @default(cuid())
-  taskId String
-  duration Int
-  startTime DateTime?
-  endTime DateTime?
+model Flow {
+  id      String    @id @default(cuid())
+  name    String
+  userId  String
 
-  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  flowTasks FlowTask[]
+}
+
+model FlowTask {
+  id     String @id @default(cuid())
+  taskId String
+  flowId String
+
+  task Task @relation(fields: [taskId], references: [id])
+  flow Flow @relation(fields: [flowId], references: [id])
+
+  @@unique([taskId, flowId])
+}
+
+model User {
+  id                  String    @id @default(cuid())
+  name                String?
+  email               String?   @unique
+  emailVerified       DateTime?
+  image               String?
+  password            String?
+  role                UserRole @default(USER)
+  accounts            Account[]
+  isTwoFactorEnabled  Boolean @default(false)
+  twoFactorConfirmation TwoFactorConfirmation?
+
+  tasks Task[] //one-to-many relationship
+  flows Flow[]
 }

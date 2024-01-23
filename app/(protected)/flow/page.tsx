@@ -98,15 +98,18 @@ const FlowPage = () => {
                         {/* Submit button */}
                         <button onClick={onSubmit}>Create Flow</button>
                         {/* User tasks */}
-                        <div className="flex flex-row">
+                        <div className="flex flex-wrap -mx-2">
                             {tasks.map((task) => (
-                                <div key={task.id}>
-                                    <input
-                                        type="checkbox"
-                                        checked={selectedTasks.includes(task)}
-                                        onChange={() => handleTaskSelection(task)}
-                                    />
-                                    {task.title}
+                                <div key={task.id} className="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                                    <div className="flex items-center h-full bg-white rounded-lg border shadow-sm px-4 py-2">
+                                        <input
+                                            type="checkbox"
+                                            checked={selectedTasks.includes(task)}
+                                            onChange={() => handleTaskSelection(task)}
+                                            className="form-checkbox h-5 w-5 text-blue-600"
+                                        />
+                                        <label htmlFor={task.id} className="ml-2 text-sm font-medium text-gray-900">{task.title}</label>
+                                    </div>
                                 </div>
                             ))}
                         </div>

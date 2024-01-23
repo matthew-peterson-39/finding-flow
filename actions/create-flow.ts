@@ -1,3 +1,5 @@
+"use server";
+
 // Import necessary dependencies and functions
 import { currentUser } from "@/lib/auth";
 import { createFlowInDatabase } from "@/data/flow";

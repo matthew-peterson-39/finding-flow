@@ -5,7 +5,6 @@ import { currentUser } from "@/lib/auth";
 import { createFlowInDatabase } from "@/data/flow";
 import { FlowSchema } from "@/schemas";
 import * as z from "zod";
-import { toast } from "sonner";
 
 // Define the server action for creating a flow
 export const createFlow = async (values: z.infer<typeof FlowSchema>) => {
@@ -15,7 +14,6 @@ export const createFlow = async (values: z.infer<typeof FlowSchema>) => {
     
     // Check if the user is authenticated
     if (!user || !user.id) {
-        toast.error(`${values.name}`);
         return { error: "Unauthorized." };
     }
 
@@ -31,11 +29,11 @@ export const createFlow = async (values: z.infer<typeof FlowSchema>) => {
         const newFlow = await createFlowInDatabase({
             name: validatedFields.data.name,
             userId: validatedFields.data.userId,
+            selectedTaskIds: validatedFields.data.selectedTaskIds
         });
        
         return { success: "Flow created.", flow: newFlow };
     } catch (error) {
-        toast.error("ERROR");
         return { error: "Failed to create flow." };
     }
 };

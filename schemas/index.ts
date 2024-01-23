@@ -3,8 +3,9 @@ import * as z from "zod";
 
 export const FlowSchema = z.object({
     name: z.string().min(1),
-    userId: z.string()
-   });
+    userId: z.string(),
+    selectedTaskIds: z.array(z.string())
+});
 
 export const TaskSchema = z.object({
     title: z.string({
